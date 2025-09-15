@@ -59,5 +59,10 @@ let openMenu = ref(false);
         </ul>
       </span>
     </div>
+    <div id="SideNav" class="h-[100%] p-6 w-[240px] fixed z-50 bg-black">
+      <RouterLink to="/">
+        <img width="125" src="/images/icons/spotify-logo.png" alt="" />
+      </RouterLink>
+    </div>
   </div>
 </template>
