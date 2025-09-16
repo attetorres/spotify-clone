@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { RouterLink, RouterView } from "vue-router";
+import MenuItem from "./components/MenuItem.vue";
 
 import ChevronUp from "vue-material-design-icons/ChevronUp.vue";
 import ChevronDown from "vue-material-design-icons/ChevronDown.vue";
@@ -61,8 +62,46 @@ let openMenu = ref(false);
     </div>
     <div id="SideNav" class="h-[100%] p-6 w-[240px] fixed z-50 bg-black">
       <RouterLink to="/">
-        <img width="125" src="/images/icons/spotify-logo.png" alt="" />
+        <img width="125" src="/images/icons/spotify-logo.png" />
       </RouterLink>
+      <div class="my-8">
+        <RouterLink to="/">
+          <MenuItem
+            class="ml-[1px]"
+            :icon-size="23"
+            name="Home"
+            icon-string="home"
+            page-url="/"
+          />
+        </RouterLink>
+        <RouterLink to="/search">
+          <MenuItem
+            class="ml-[1px]"
+            :icon-size="23"
+            name="Search"
+            icon-string="search"
+            page-url="/search"
+          />
+        </RouterLink>
+        <RouterLink to="/library">
+          <MenuItem
+            class="ml-[1px]"
+            :icon-size="23"
+            name="Library"
+            icon-string="library"
+            page-url="/library"
+          />
+        </RouterLink>
+        <div class="py-3.5">
+          <MenuItem
+            class="ml-[1px]"
+            :icon-size="24"
+            name="Create Playlist"
+            icon-string="playlist"
+            page-url="/playlist"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
