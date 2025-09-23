@@ -6,6 +6,7 @@ import DotsHorizontal from "vue-material-design-icons/DotsHorizontal.vue";
 import Heart from "vue-material-design-icons/Heart.vue";
 import ClockTimeThreeOutline from "vue-material-design-icons/ClockTimeThreeOutline.vue";
 import artist from "../assets/artist.json";
+import SongRow from "../components/SongRow.vue";
 </script>
 
 <template>
@@ -54,7 +55,7 @@ import artist from "../assets/artist.json";
       </div>
     </div>
     <div class="mt-6"></div>
-    <div class="flex items-center justify-between px- pt-2">
+    <div class="flex items-center justify-between px-5 pt-2">
       <div class="flex items-center justify-between text-gray-400">
         <div class="mr-7">#</div>
         <div class="text-sm">Title</div>
@@ -70,9 +71,7 @@ import artist from "../assets/artist.json";
       v-for="(track, index) in artist.tracks"
       :key="track.id"
     >
-      {{
-        track
-      }}
+      <SongRow :artist="artist" :track="track" :index="++index" />
     </ul>
   </div>
 </template>
