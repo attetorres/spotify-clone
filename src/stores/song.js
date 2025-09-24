@@ -18,6 +18,7 @@ export const useSongStore = defineStore("song", {
         this.isPlaying = false;
         this.audio.src = "";
       }
+
       this.audio = new Audio();
       this.audio.src = track.path;
 
@@ -26,15 +27,17 @@ export const useSongStore = defineStore("song", {
         this.audio.play();
       }, 200);
     },
+
     playOrPauseSong() {
       if (this.audio.paused) {
         this.isPlaying = true;
         this.audio.play();
       } else {
         this.isPlaying = false;
-        this.audio.paused();
+        this.audio.pause();
       }
     },
+
     playOrPauseThisSong(artist, track) {
       if (!this.audio || !this.audio.src || this.currentTrack.id !== track.id) {
         this.loadSong(artist, track);
