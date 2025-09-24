@@ -79,4 +79,5 @@ export const useSongStore = defineStore("song", {
       this.currentTrack = null;
     },
   },
+  persist: true,
 });

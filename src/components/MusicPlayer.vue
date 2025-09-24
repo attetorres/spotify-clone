@@ -9,6 +9,7 @@ import SkipForward from "vue-material-design-icons/SkipForward.vue";
 
 import { useSongStore } from "../stores/song";
 import { storeToRefs } from "pinia";
+import MusicPlayerVolume from "./MusicPlayerVolume.vue";
 
 const useSong = useSongStore();
 const { isPlaying, audio, currentTrack, currentArtist } = storeToRefs(useSong);
@@ -171,7 +172,7 @@ watch(
             v-model="range"
             ref="seeker"
             type="range"
-            class="absolute rounded-full my-2 w-full h-0 z-40 appearance-none bg-opacity-100 focus:outline-none accent-white"
+            class="absolute rounded-full my-2 w-full h-0 z-40 appearance-none bg-opacity-100 focus:outline-none accent-white cursor-pointer"
             :class="{ rangeDotHidden: !isHover }"
           />
           <div
@@ -191,7 +192,9 @@ watch(
         </div>
       </div>
     </div>
-    <div class="flex items-center w-1/4 justify-end pr-10"></div>
+    <div class="flex items-center w-1/4 justify-end pr-10">
+      <MusicPlayerVolume />
+    </div>
   </div>
 </template>
 
