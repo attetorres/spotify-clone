@@ -48,6 +48,10 @@ export const useSongStore = defineStore("song", {
     },
 
     prevSong(currentTrack) {
+      if (currentTrack.id === artist.tracks[0].id) {
+        this.loadSong(this.currentArtist, currentTrack);
+        return;
+      }
       let track = artist.tracks[currentTrack.id - 2];
       this.loadSong(artist, track);
     },
